@@ -1,0 +1,18 @@
+name: Mock deployment action
+description: 'Mock deployment action to demonstrate reusable workflows'
+
+inputs:
+  environment:
+    description: 'Environment to deploy to'
+    required: true
+  applicationName:
+    description: 'Name of the application'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Deploying ${{ inputs.applicationName }} to ${{ inputs.environment }}
+      shell: bash
+      run: |
+        echo "Deploying to ${{ inputs.environment }}"
